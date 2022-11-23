@@ -14,14 +14,15 @@ server.set('views', path.join(__dirname, 'views'));
 server.engine('mustache', mustache());
 
 //Configurando pasta pública
-server.use(express.static(path.join(__dirname, '../public ')))
+server.use(express.static(path.join(__dirname, '../public')))
 
 //Configurando Rotas
 server.use(mainRoutes);
 
 //Rota 404
 server.use((req, res)=>{
-    res.send('Ops! Página não encontrada')
+    //res.send('Ops! Página não encontrada')
+    res.render('pages/404')
 })
 
 server.listen(process.env.PORT)
